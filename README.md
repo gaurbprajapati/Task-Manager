@@ -36,3 +36,42 @@ Follow the instructions below to get started with running the Task Manager appli
 
    ```bash
    git clone https://github.com/gaurbprajapati/TO_DO_APP_MERN_Stack
+   
+### Backend:
+
+Follow the instructions below to set up the Backend application.
+
+##### Navigate to the backend project directory:
+
+cd TO_DO_APP_MERN_Stack backend
+
+##### Install the dependencies:
+
+npm install
+
+##### Start the backend server:
+
+nodemon server
+
+##### The backend server will run on http://localhost:5000.
+
+
+### frontend:
+
+Follow the instructions below to set up the frontend application.
+
+
+
+##### Navigate to the backend project directory:
+
+cd TO_DO_APP_MERN_Stack frontend
+
+##### Install the dependencies:
+
+npm install
+
+##### Start the backend server:
+
+npm start
+
+##### The frontend application will run on http://localhost:3000.
