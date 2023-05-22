@@ -1,14 +1,14 @@
-# TO_DO_APP_MERN_Stack
+# TO DO Application  
 
 
-TO_DO_APP(Task Manager) is a simple web application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) that allows users to manage their tasks. It provides features such as adding tasks, updating tasks, and deleting tasks.
+TO_DO_APP (Task Manager) is a simple web application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) that allows users to manage their tasks. It provides features such as adding tasks, updating tasks, and deleting tasks.
 
 ## Features
 
-- Add new tasks with a title and description
-- Update existing tasks with new title and description
-- Delete tasks from the task list
-- User-friendly interface with minimal design
+- #### Add new tasks with a title and description
+- #### Update existing tasks with new title and description
+- #### Delete tasks from the task list
+- #### User-friendly Responsive interface with minimal design
 
 ## Technologies Used
 
