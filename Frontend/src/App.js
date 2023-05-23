@@ -7,7 +7,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [editTaskId, setEditTaskId] = useState('');
+  const [editTask_id, setEditTask_id] = useState('');
   const [editTitle, setEditTitle] = useState('');
   const [editDescription, setEditDescription] = useState('');
   const [message, setMessage] = useState('');
@@ -41,10 +41,10 @@ function App() {
   };
 
 
-  const handleDeleteTask = async (taskId) => {
+  const handleDeleteTask = async (task_id) => {
     try {
-      await axios.delete(`api/deltasks/${taskId}`);
-      setTasks(tasks.filter((task) => task._id !== taskId));
+      await axios.delete(`api/deltasks/${task_id}`);
+      setTasks(tasks.filter((task) => task._id !== task_id));
       setMessage('Task deleted successfully');
     } catch (error) {
       console.error('Error deleting task:', error);
@@ -53,19 +53,19 @@ function App() {
   };
 
   const handleEditTask = (task) => {
-    setEditTaskId(task._id);
+    setEditTask_id(task._id);
     setEditTitle(task.title);
     setEditDescription(task.description);
   };
 
   const handleUpdateTask = async () => {
     try {
-      await axios.put(`api/updatetasks/${editTaskId}`, {
+      await axios.put(`api/updatetasks/${editTask_id}`, {
         title: editTitle,
         description: editDescription,
       });
       const updatedTasks = tasks.map((task) => {
-        if (task._id === editTaskId) {
+        if (task._id === editTask_id) {
           return {
             ...task,
             title: editTitle,
@@ -75,7 +75,7 @@ function App() {
         return task;
       });
       setTasks(updatedTasks);
-      setEditTaskId('');
+      setEditTask_id('');
       setEditTitle('');
       setEditDescription('');
       setMessage('Task updated successfully');
@@ -111,7 +111,7 @@ function App() {
         {tasks.map((task) => (
           <div key={task._id} className="task-item">
             <div className="task-details">
-              {editTaskId === task._id ? (
+              {editTask_id === task._id ? (
                 <div>
                   <input
                     type="text"
