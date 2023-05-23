@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-
 import './App.css';
+
+import axios from 'axios';
+import React, {useEffect, useState} from 'react';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -12,9 +12,7 @@ function App() {
   const [editDescription, setEditDescription] = useState('');
   const [message, setMessage] = useState('');
 
-  useEffect(() => {
-    fetchTasks();
-  }, [tasks]);
+  useEffect(() => { fetchTasks(); }, [ tasks ]);
 
   const fetchTasks = async () => {
     try {
@@ -27,9 +25,9 @@ function App() {
 
   const handleAddTask = async () => {
     try {
-      const response = await axios.post('api/addtasks', { title, description });
+      const response = await axios.post('api/addtasks', {title, description});
       const newTask = response.data;
-      setTasks([...tasks, newTask]);
+      setTasks([...tasks, newTask ]);
       setTitle('');
       setDescription('');
       setMessage('Task created successfully');
@@ -39,7 +37,6 @@ function App() {
       console.log(error);
     }
   };
-
 
   const handleDeleteTask = async (task_id) => {
     try {
@@ -61,15 +58,15 @@ function App() {
   const handleUpdateTask = async () => {
     try {
       await axios.put(`api/updatetasks/${editTask_id}`, {
-        title: editTitle,
-        description: editDescription,
+        title : editTitle,
+        description : editDescription,
       });
       const updatedTasks = tasks.map((task) => {
         if (task._id === editTask_id) {
           return {
             ...task,
-            title: editTitle,
-            description: editDescription,
+            title : editTitle,
+            description : editDescription,
           };
         }
         return task;
@@ -91,32 +88,35 @@ function App() {
       <div className="add-task">
         <h2 className='add-task-css' >Add Task</h2>
         <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+  type = "text"
+  placeholder = "Title"
+  value = {title} onChange =
+  {
+    (e) => setTitle(e.target.value)
+  } />
         <input
           type="text"
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-        />
-        <button onClick={handleAddTask}>Add Task</button>
+        / >
+      <button onClick = {handleAddTask}>Add Task</button>
 
       </div>
-      <h2 className="heading">All Tasks</h2>
-      {message && <p className={`alert ${message.includes('successfully') ? 'success' : 'error'}`}>{message}</p>}
-      <div className="task-list">
-        {tasks.map((task) => (
+      <h2 className = "heading">All Tasks<
+          /h2>
+      {message && <p className={`alert ${message.includes('successfully') ? 'success' : 'error'}`}>{message}</p>
+}
+<div className = "task-list"> {tasks.map((task) => (
           <div key={task._id} className="task-item">
             <div className="task-details">
               {editTask_id === task._id ? (
                 <div>
                   <input
-                    type="text"
+  type = "text"
                     value={editTitle}
-                    onChange={(e) => setEditTitle(e.target.value)}
+                    onChange={
+    (e) => setEditTitle(e.target.value)}
                   />
                   <input
                     type="text"
